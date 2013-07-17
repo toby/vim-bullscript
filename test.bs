@@ -1,0 +1,18 @@
+var author = "Toby";
+var email = "tobypadilla@gmail.com"
+var screenshot = "screenshot.png"
+var stringBs = "Hi, #{author} is inside a string!"
+
+var $block = <span><a href="mailto:#{email}">#{author}</a></span>;
+
+var multiBlock = function(href, title) {
+  return <div>
+           <div>
+             <a href="#x{href}">#{title}</a>
+           </div>
+         </div>;
+};
+
+var $img = <img src=#{screenshot} />;
+
+var regularJS = function(x) { return x + 1; };
