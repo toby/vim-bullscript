@@ -1,11 +1,14 @@
 var author = "Toby";
+
 var email = "tobypadilla@gmail.com"
-var screenshot = "screenshot.png"
-var stringBs = "Hi, #{author} is inside a string!"
 
-var $block = <span><a href="mailto:#{email}">#{author}</a></span>;
+var regularJs = function(x) { return x + 1; };
 
-var multiBlock = function(href, title) {
+var bsString = "Hi, #{author} is inside a string!"
+
+var $bsLine = <span><a href="mailto:#{email}">#{author}</a></span>;
+
+var bsMultiLine = function(href, title) {
   return <div>
            <div>
              <a href="#x{href}">#{title}</a>
@@ -13,6 +16,12 @@ var multiBlock = function(href, title) {
          </div>;
 };
 
-var $img = <img src=#{screenshot} />;
+var screenshot = "screenshot.png"
 
-var regularJS = function(x) { return x + 1; };
+var $bsImg = <img src=#{screenshot} />;
+
+// Shouldn't break
+
+if (5 < 8) "lt test"
+
+if (8 > 5) "gt test"
