@@ -25,3 +25,7 @@ var $bsImg = <img src=#{screenshot} />;
 if (5 < 8) "lt test"
 
 if (8 > 5) "gt test"
+
+var $el = $('<li>').addClass(this.CSSClass()).append(html.call(this));
+
+var $el = $("<li>").addClass(this.CSSClass()).append(html.call(this));

@@ -18,7 +18,7 @@ syn cluster javaScriptAll add=bsHTML
 " BullScript
 syn region bs matchgroup=Special start="\v#[nNxX]?\{" end="}" contains=bsExp
 syn match bsExp "\v[^{}]*" contained containedin=bs
-syn region bsHTML start="\v\<[^/ ]" end="\v(/\>|\</[^>]*\>)" contains=bsHTML,bs
+syn region bsHTML start="\v[^\'\"]\<[^/ ]" end="\v(/\>|\</[^>]*\>)" contains=bsHTML,bs
 syn region bsStringD start='"' end='"' contains=bs
 syn region bsStringS start="'" end="'" contains=bs
 
