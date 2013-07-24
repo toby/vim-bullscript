@@ -24,6 +24,8 @@ var $bsImg = <img src=#{screenshot} />;
 
 <div></div>;
 
+var i = something(<input type=text>);
+
 if (5 < 8) "lt test"
 
 if (8 > 5) "gt test"

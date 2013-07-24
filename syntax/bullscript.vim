@@ -13,7 +13,7 @@ endif
 " Javascript
 runtime! syntax/javascript.vim syntax/javascript/*.vim
 syn cluster htmlPreproc add=bs
-syn cluster javaScriptAll add=bsHTML
+syn cluster javaScriptAll add=bsHTML,bsInput
 
 " BullScript
 syn region bs matchgroup=Special start="\v#[nNxX]?\{" end="}" contains=bsExp
