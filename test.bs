@@ -22,6 +22,8 @@ var $bsImg = <img src=#{screenshot} />;
 
 // Shouldn't break
 
+<div></div>;
+
 if (5 < 8) "lt test"
 
 if (8 > 5) "gt test"
@@ -29,3 +31,42 @@ if (8 > 5) "gt test"
 var $el = $('<li>').addClass(this.CSSClass()).append(html.call(this));
 
 var $el = $("<li>").addClass(this.CSSClass()).append(html.call(this));
+
+$overlay.append(<button class="queueit single">Queue</button>.click(function() {
+    $playrack.add(route);
+}).css('top', $playrack.height() + 60));
+
+function $newmix(track, skin) {
+    return <div class=tape-style-#{skin} style=cursor:auto;width:325px>
+        <div class=liner>
+            <div class=img></div>
+            <div class=title>
+                <form>
+                    <input autocapitalize=off
+                                     type=text
+                                    style=font:inherit;width:95%
+                              placeholder="Super Cool Mixtape Name"
+                                autofocus=true
+                              autocorrect=off>
+                </form>
+            </div>
+        </div>
+    </div>.find('form').submit(function() {
+        var title = $(this).children('input').val();
+        var note = notify("Creating Mixtape: #{title}");
+        rackit.ws.send({
+            method: 'create',
+            route: "/mix/#{rackit.user.uid()}",
+            data: {
+                title: title,
+                tracks: [track],
+                skin: skin
+            }
+        }, function(rsp) {
+            note.text("Created Mixtape: #{title}");
+            rsp.data.route = "/mix/#{rackit.user.uid()}/#x{title}";
+            rackit.user.trigger('mkmix', new Tape(rsp.data));
+        });
+        return false;
+    }).end();
+}

@@ -12,13 +12,14 @@ endif
 
 " Javascript
 runtime! syntax/javascript.vim syntax/javascript/*.vim
-syn cluster htmlPreproc add=bsHTML,bs
+syn cluster htmlPreproc add=bs
 syn cluster javaScriptAll add=bsHTML
 
 " BullScript
 syn region bs matchgroup=Special start="\v#[nNxX]?\{" end="}" contains=bsExp
 syn match bsExp "\v[^{}]*" contained containedin=bs
-syn region bsHTML start="\v[^\'\"]\<[^/ ]" end="\v(/\>|\</[^>]*\>)" contains=bsHTML,bs
+syn region bsHTML start="\v\<[^/ ]" end="\v(/\>|\</[^>]*\>)" contains=bs,bsHTML,bsInput
+syn region bsInput start="\v\<input[^/>]*" end="\v\>"
 syn region bsStringD start='"' end='"' contains=bs
 syn region bsStringS start="'" end="'" contains=bs
 
@@ -27,5 +28,6 @@ hi def link bsExp Statement
 hi def link bsStringD String
 hi def link bsStringS String
 hi def link bsHTML String
+hi def link bsInput String
 
 let b:current_syntax = "bullscript"
